@@ -1,0 +1,24 @@
+
+
+
+<%- include('../partials/header.ejs')%>
+<article class="connart">
+    <% for (let key of map.keys()) { %>
+    <% let connections=map.get(key) %>
+        <h1>
+        <%= key %>
+        </h1>
+        <p>&nbsp;</p>
+        <% if (connections.length>0) { %>
+        <% connections.forEach(connection=> { %>
+                <a class=connart href="/connections/<%= connection._id%>" style="text-decoration: none">
+                <p><%= connection.Title%></p>
+                <p>&nbsp;</p>
+                </a>
+            <p>&nbsp;</p>
+            <% }) %>
+            <% } %>
+                <% } %>
+
+</article>
+<%- include("../partials/footer.ejs") %>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>UNCC Esports </title>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+  <body>
+    <header class="banner">
+      <h1><a href= "/"> <img src="/images/sport.Png" width="120"   alt="CCI image" id = "cciimage"></a>
+			<a  href="/" style="text-decoration: none;" id = "mainh">&nbsp;UNCC &nbsp; E-Sports</a>
+			
+      <%if(!user) {%>
+        &nbsp;&nbsp;&nbsp;
+		  <a   href="/users/login" style="text-decoration: none;" id= "registration">Log in</a>
+		  |
+		  <a  href="/users/new" style="text-decoration: none" id= "registration2">Sign up</a>
+		  <%} else {%>
+        <a  href="/connections/newconnection" style="text-decoration: none;" id="startaconnection">Start a connection</a>
+        <a href='/users/profile' style="text-decoration: none;" id= "registration">Profile</a>
+        &nbsp;&nbsp;&nbsp;
+        <a href='/users/logout'style="text-decoration: none;" id= "registration2">Logout</a>
+      <%}%>
+	  </h1>
+    </header>
+	<nav > <a href="/connections" style="text-decoration: none;" id = "connectionlink">Connections</a>
+    <%if(user) {%>
+      <p id = 'Welcome'>Welcome <%=name%>! </p>
+      <%}%>
+    </nav>
+    <div class = 'flash'>
+    <% if(errorMessages.length > 0) {
+       errorMessages.forEach(message=>{%>
+        <div class='error'>
+              <%=message%>
+            </div>
+          <%});
+              }
+  
+                  if(successMessages.length > 0) {
+  
+                       successMessages.forEach(message=>{%>
+                          <div class='success'>
+                              <%=message%>
+                          </div>
+                          <%});%>
+                              <%}%>
+                            </div>

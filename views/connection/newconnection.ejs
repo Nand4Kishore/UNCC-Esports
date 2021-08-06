@@ -1,0 +1,50 @@
+<%- include('../partials/header.ejs')%>
+<main>
+<div class = "content">
+  <form action = '/connections' method = 'POST'>
+      <table>
+          <tr>
+              <td><label for='createdBy'>HostedBy</label></td>
+              <td><input type="text" id='createdBy' name='createdBy' class = "fixed-width" required></td>
+          </tr>
+          <tr>
+              <td><label for="Title">Name of the Game</label></td>
+              <td><input type="text" id="Title" name="Title" class = "fixed-width" required></td>
+          </tr>
+          <tr>
+            <td><label for="Type">Game Category</label></td>
+            <td><input type="text" id="Type" name="Type" class = "fixed-width" required></td>
+        </tr>
+          <tr>
+              <td class = "align-top"><label for="details">Details</label></td>
+              <td><textarea rows="5" id="details" name="details" class = "fixed-width" required minlength = "10">&nbsp;</textarea></td>
+          </tr>
+            <tr>
+                <td class = "align-top"><label for="Location">Location</label></td>
+                <td><input type="text" id="Location" name="Location" class = "fixed-width" required></td>
+            </tr>
+            <tr><td class = "align-top"><label for="When">When</label></td>
+            <td><input type="date" id="When" name="date" class = "fixed-width" required></td></tr>
+            <tr>
+            <td class = "align-top"><label for="Start&emspTime">Start Time</label></td>
+            <td><input type="time" id="Start&emspTime" name="starttime" class = "fixed-width" required></td>
+            </tr>
+            <tr>
+                <td class = "align-top"><label for="End&emspTime">End Time</label></td>
+                <td><input type="time" id="End&emspTime" name="endtime" class = "fixed-width" required></td>
+                </tr>
+            <tr>
+                <td class = "align-top"><label for="Select&emspImage">Select Image</label>
+                    <td>   <input type="text" id="Select&emspImage" name="image" required></td>
+            </tr>
+
+
+            <tr>
+              <td colspan="2" class = "align-right"><button>Submit</button></td>
+          </tr>
+      </table>        
+  </form>
+
+  </div>
+  </main>
+  <%- include('../partials/footer.ejs')%>

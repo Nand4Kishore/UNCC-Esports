@@ -1,0 +1,61 @@
+<%- include('../partials/header.ejs')%>
+	<main>
+	  <article class = "connart1">
+		<h1 ><%= event.Title%></h1>
+		<p>&nbsp;<p>
+		
+		<img src="<%= event.image%>" width="300" id="normniner"  alt="normninerpic"><br><p>&nbsp;</p>	
+		<div>
+			
+			Hosted by <%= event.createdBy%><br><p>&nbsp;</p>
+
+			Location  <%= event.Location%> <br> <p>&nbsp;</p>
+			Date <%= event.date%> <br> <p>&nbsp;</p>
+			Starts at <%= event.starttime%> <br> <p>&nbsp;</p>
+
+			Ends at <%= event.endtime%> <br> <p>&nbsp;</p>
+		<p>&nbsp;</p>
+		</div>	
+
+		<% if (user) { %>					
+			<%if(user == event.author._id) {%>
+				<div class="nav_article">					
+					<form>
+						<button type="submit" formmethod="GET" formaction="/connections/<%= event._id%>/update">Update</button>
+						<button type="submit" formmethod="POST" formaction="/connections/<%= event._id%>?_method=DELETE">Delete</button>
+					</form>
+				</div>
+			<% } else { %>
+				<div class="nav_article">	
+					<h3><%=count%> people are going. Are you interested in going?</h3>
+					<form>
+						<button class="yes" type="submit" formmethod="POST" formaction="/rsvp/<%= event._id%>/Yes/updateRsvp?_method=PUT">Yes</button>
+						<button class="no" type="submit" formmethod="POST" formaction="/rsvp/<%= event._id%>/No/updateRsvp?_method=PUT">No</button>
+						<button class="maybe" type="submit" formmethod="POST" formaction="/rsvp/<%= event._id%>/Maybe/updateRsvp?_method=PUT">Maybe</button>
+					</form>
+				</div>
+			<% } %>
+			<% } else { %>
+				<div class="nav_article">					
+					<h3><%=count%> people are going. Are you interested in going?</h3>							
+					<form>
+						<button id="ab" type="submit" formmethod="POST" formaction="/rsvp/<%= event._id%>/Yes/updateRsvp?_method=PUT">Yes</button>
+						<button id="cd" type="submit" formmethod="POST" formaction="/rsvp/<%= event._id%>/No/updateRsvp?_method=PUT">No</button>
+						<button id="ef" type="submit" formmethod="POST" formaction="/rsvp/<%= event._id%>/Maybe/updateRsvp?_method=PUT">Maybe</button>
+					</form>
+				</div>
+			<% } %>
+
+
+
+
+
+            <h2 >Details</h2><p>&nbsp;</p>
+          <!-- <p>Looking for 3 players. Anyone who is interested to play multiplayer can join me. <br> If we have 8 people we can create our own room/Arena</p> -->
+			<p><%= event.details%> </p> <p>&nbsp;</p>
+
+			 <%= event.createdAt%> <br> <p>&nbsp;</p>
+				  </article>
+
+	</main>
+	<%- include('../partials/footer.ejs')%>

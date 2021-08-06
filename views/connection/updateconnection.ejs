@@ -1,0 +1,27 @@
+<%- include('../partials/header.ejs')%>
+    <div class="connart"> 
+        <form action="/connections/<%=event.id%>?_method=PUT" method="POST">
+            <P>
+                <LABEL for="EventCategory">Game Category:</LABEL>
+                    <INPUT type="text" name="Type" id="EventCategory" value="<%= event.Type%>" required><BR><BR>
+                <LABEL for="name">Game Name:</LABEL>
+                    <INPUT type="text" name="Title" id="name" value="<%= event.Title%>" required><BR><BR>
+                <LABEL for="HostedBy">Host:</LABEL>
+                          <INPUT type="text" name="createdBy" id="HostedBy" value="<%= event.createdBy%>" required><BR><BR>
+                <LABEL for="Details">Details:</LABEL>
+                          <INPUT type="text" size="50" name="details" id="Details" value="<%= event.details%>" required><BR><BR>
+                <LABEL for="Where">Where:</LABEL>
+                          <INPUT type="text" name= "Location" id="Where" value="<%= event.Location%>" required><BR><BR>
+                <LABEL for="When">When:</LABEL>
+                          <INPUT type="date" name="date" id="When" value="<%= event.date%>" required><BR><BR>
+                <LABEL for="Start&emspTime">Start Time:</LABEL>
+                          <INPUT type="time" name="starttime" id="Start&emspTime" value="<%= event.starttime%>" required><BR><BR>
+                <LABEL for="End&emspTime">End Time:</LABEL>
+                            <INPUT type="time" name="endtime" id="End&emspTime" value="<%= event.endtime%>" required><BR><BR>
+                <label for="img">Select image:</label>
+                           <input type="text" id="img" name="image" value="<%= event.image%>" required><br><br>
+                <button type="submit">Submit</button>
+                </P>
+        </form>
+    </div>       
+<%- include('../partials/footer.ejs')%>
